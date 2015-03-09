@@ -1,28 +1,27 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+=== School Uniform Resale - Ruby on Rails Flavor
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.2.0
 
-* System dependencies
+* Rails version 4.2.0
 
-* Configuration
+* Twitter Bootstrap (via the bootstrap-sass gem)
 
-* Database creation
+* Devise for authentication
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Cancancan for authorization
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Commit notes:
+
+
+Bootstrap implementation from this article: https://rubyplus.com/articles/1371
+
+Authentication implementation:
+http://hibbard.eu/authentication-with-devise-and-cancancan-in-rails-4-2/
+
+== andrew pierce, andrunix
+
