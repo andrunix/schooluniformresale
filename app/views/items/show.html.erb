@@ -20,6 +20,11 @@
 </p>
 
 <p>
+  <strong>Category:</strong>
+  <%= @item.category.name unless @item.category.nil? %>
+</p>
+
+<p>
   <strong>Condition:</strong>
   <%= @item.condition.description unless @item.condition.nil? %>
 </p>

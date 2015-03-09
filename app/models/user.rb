@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   has_many :items
   has_many :users_schools
   has_and_belongs_to_many :schools, join_table: :users_schools
+  has_many :messages, foreign_key: :from_user_id
+  has_many :incoming_messages, foreign_key: :to_user_id, class_name: "Message"
+
 
   validates_presence_of :fname
   validates_presence_of :lname
@@ -31,10 +34,9 @@ class User < ActiveRecord::Base
     self.role.name == "Admin"
   end
 
-
-  def seller?
-      self.role.name == "Seller"
-  end
+  # def seller?
+  #     self.role.name == "Seller"
+  # end
 
   def regular?
       self.role.name == "Regular"

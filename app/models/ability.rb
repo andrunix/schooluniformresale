@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
     if user.admin?
       can :manage, :all
-    elsif user.seller?
+    else
         can :read, Item
         can :create, Item
         can :update, Item do |item|
@@ -16,10 +16,12 @@ class Ability
         can :read, Category
         can :read, School
         can :create, School
-    elsif user.regular?
-      can :read, Item
-      can :read, Category
-      can :read, School
+
+        can :create, Message
+        can :read, Message do |message|
+            message.try(:user) == user
+        end
+
     end
     
     # Define abilities for the passed in user here. For example:

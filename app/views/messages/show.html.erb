@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>From user:</strong>
+  <%= @message.from_user_id %>
+</p>
+
+<p>
+  <strong>To user:</strong>
+  <%= @message.to_user_id %>
+</p>
+
+<p>
+  <strong>Parent message:</strong>
+  <%= @message.parent_message_id %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @message.subject %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @message.message %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @message.item_id %>
+</p>
+
+<p>
+  <strong>Unread:</strong>
+  <%= @message.unread %>
+</p>
+
+<p>
+  <strong>Folder:</strong>
+  <%= @message.folder_id %>
+</p>
+
+<%= link_to 'Edit', edit_message_path(@message) %> |
+<%= link_to 'Back', messages_path %>
