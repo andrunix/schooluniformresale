@@ -16,7 +16,12 @@
 
 <p>
   <strong>Seller:</strong>
-  <%= @item.user.fname unless @item.user.nil? %>
+  <%= @item.user.name unless @item.user.nil? %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @item.condition.description unless @item.condition.nil? %>
 </p>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
