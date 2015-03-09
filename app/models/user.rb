@@ -4,7 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :role
+
   has_many :items
+  has_many :users_schools
+  has_and_belongs_to_many :schools, join_table: :users_schools
 
   validates_presence_of :fname
   validates_presence_of :lname
@@ -16,7 +19,7 @@ class User < ActiveRecord::Base
     "#{self.fname} #{self.lname}"
   end
 
-  def lname_fname
+  def last_first
     "#{self.lname}, #{self.fname}"
   end
 
