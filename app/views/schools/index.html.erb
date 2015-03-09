@@ -14,16 +14,14 @@
       <th>Zip</th>
       <th>Url</th>
       <th>Email</th>
-      <th>Approved</th>
-      <th>Created by</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @schools.each do |school| %>
       <tr>
-        <td><%= school.name %></td>
+        <td><%= link_to school.name, school %></td>
         <td><%= school.description %></td>
         <td><%= school.address1 %></td>
         <td><%= school.address2 %></td>
@@ -32,11 +30,16 @@
         <td><%= school.zip %></td>
         <td><%= school.url %></td>
         <td><%= school.email %></td>
-        <td><%= school.approved %></td>
-        <td><%= school.created_by %></td>
-        <td><%= link_to 'Show', school %></td>
-        <td><%= link_to 'Edit', edit_school_path(school) %></td>
-        <td><%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if can? :update, school %>
+            <%= link_to 'Edit', edit_school_path(school) %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :destroy, school %>
+            <%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

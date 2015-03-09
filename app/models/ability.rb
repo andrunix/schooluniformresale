@@ -13,8 +13,13 @@ class Ability
         can :destroy, Item do |item|
             item.try(:user) == user
         end
+        can :read, Category
+        can :read, School
+        can :create, School
     elsif user.regular?
       can :read, Item
+      can :read, Category
+      can :read, School
     end
     
     # Define abilities for the passed in user here. For example:
