@@ -8,7 +8,17 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    if params[:school_id]
+      school = School.find(params[:school_id])
+      @items = school.items
+    else
+      @items = Item.all
+    end
+  end
+
+  def my_items
+    @items = current_user.items
+    render "index"
   end
 
   # GET /items/1

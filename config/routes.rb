@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
   resources :messages
-
   resources :conditions
-
   resources :categories
 
-  resources :schools
+  resources :schools do
+    resources :items
+  end
 
   devise_for :users
   scope "/admin" do
@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   end
   root :to => 'welcome#index'
 
+  get 'my_items' => 'items#my_items', as: :my_items
   post 'add_fav/:school_id' => 'users#add_fav', as: :add_fav
 
   # The priority is based upon order of creation: first created -> highest priority.
