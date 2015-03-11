@@ -1,0 +1,44 @@
+
+<h1>Welcome to School Uniform Resale!</h1>
+
+<div class="row">
+  <div class="col-md-4 col-sm-8">
+
+    <h3>My Schools</h3>
+    <table>
+      <% current_user.schools.each do |school| %>
+      <tr>
+        <td><%= link_to school.name, school %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div class="col-md-8 col-sm-8">
+    <h3>Buy & Sell</h3>
+    <%= link_to "List Clothing for Sale", new_item_path %><br/>
+    <%= link_to "Browse Clothing for Sale", items_path %></br/>
+    <hr/>
+    <p>
+    <%= link_to "Items I am Selling (#{current_user.items.length})", items_path %>
+    <br/>
+    <%= link_to "Items I am Watching (0)", items_path %>
+
+    </p>
+
+    <hr/>
+    <h3>Messages</h3>
+    <p>
+    <%= link_to "Inbox : #{current_user.messages.length} / 0", messages_path %>
+    </p>
+
+    <h3>Friends</h3>
+
+    <p>
+      It looks like you don't have any School Uniform Friends yet. Why not invite someone to join now?
+    </p>
+
+    <a href="#">Invite a friend</a>
+
+  </div>
+</div>

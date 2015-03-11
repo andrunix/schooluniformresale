@@ -35,6 +35,9 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li>
+          <%= current_user.email if user_signed_in? %>
+        </li>
+        <li>
           <%= nav_link "Schools", schools_path %>
         </li>
 

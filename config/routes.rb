@@ -18,7 +18,8 @@ Rails.application.routes.draw do
 
 
   authenticated :user do
-    root to: "items#index", as: :authenticated_root
+    # root to: "items#index", as: :authenticated_root
+    root to: 'welcome#home', as: :authenticated_root
   end
   root :to => 'welcome#index'
 
