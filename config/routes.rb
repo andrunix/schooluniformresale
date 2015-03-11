@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   end
   root :to => 'welcome#index'
 
+  get 'add_fav/:school_id' => 'users#add_fav', as: :add_fav
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

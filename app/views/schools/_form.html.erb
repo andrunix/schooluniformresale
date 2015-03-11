@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_area :description, cols: 60, rows: 4 %>
   </div>
   <div class="field">
     <%= f.label :address1 %><br>
@@ -31,10 +31,13 @@
     <%= f.label :city %><br>
     <%= f.text_field :city %>
   </div>
+
+  <!-- TODO : make this a dropdown -->
   <div class="field">
     <%= f.label :state %><br>
     <%= f.text_field :state %>
   </div>
+
   <div class="field">
     <%= f.label :zip %><br>
     <%= f.text_field :zip %>
@@ -47,14 +50,12 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
+  <!-- TODO: remove this. it should only be available on the admin page -->
   <div class="field">
     <%= f.label :approved %><br>
     <%= f.check_box :approved %>
   </div>
-  <div class="field">
-    <%= f.label :created_by %><br>
-    <%= f.number_field :created_by %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

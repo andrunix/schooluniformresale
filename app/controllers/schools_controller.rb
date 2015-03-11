@@ -28,6 +28,10 @@ class SchoolsController < ApplicationController
   def create
     #@school = School.new(school_params)
 
+    # Set created_by to the current user and add the school to the user's "favorites"
+    @school.created_by = current_user.id
+    current_user.schools << @school
+
     respond_to do |format|
       if @school.save
         format.html { redirect_to @school, notice: 'School was successfully created.' }

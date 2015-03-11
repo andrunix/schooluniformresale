@@ -3,6 +3,18 @@ class UsersController < ApplicationController
   # before_action :set_user, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
+  # add_fav
+  # adds a school as a favorite
+  # GET /add_fav/:school_id
+  def add_fav
+    logger.debug('***** add_fav')
+    school = School.find(params[:school_id])
+    logger.debug("School found: #{school.name}")
+    current_user.schools << school
+    current_user.save
+    redirect_to schools_path
+  end
+
   # GET /users
   # GET /users.json
   def index
@@ -81,6 +93,8 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

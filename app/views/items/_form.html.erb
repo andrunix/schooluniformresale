@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :school %><br/>
+    <%= collection_select(:item, :school_id, current_user.schools, :id, :name, {prompt: true}) %>
+  </div>
+
+  <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>

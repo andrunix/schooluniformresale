@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
-      <th>Description</th>
       <th>Address1</th>
       <th>Address2</th>
       <th>City</th>
@@ -21,8 +21,8 @@
   <tbody>
     <% @schools.each do |school| %>
       <tr>
+        <td><%= link_to 'Fav', add_fav_path(school) unless current_user.schools.include?(school) %></td>
         <td><%= link_to school.name, school %></td>
-        <td><%= school.description %></td>
         <td><%= school.address1 %></td>
         <td><%= school.address2 %></td>
         <td><%= school.city %></td>
