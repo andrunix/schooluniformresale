@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  include ActionView::Helpers::NumberHelper
   before_filter :authenticate_user!
 
   # before_action :set_item, only: [:show, :edit, :update, :destroy]
