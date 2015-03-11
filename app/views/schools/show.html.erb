@@ -1,59 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @school.name %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @school.description %>
-</p>
+<h3><%= @school.name %></h3>
 
-<p>
-  <strong>Address1:</strong>
-  <%= @school.address1 %>
-</p>
+<div class="row">
+  <div class="well">
 
-<p>
-  <strong>Address2:</strong>
-  <%= @school.address2 %>
-</p>
+    <p>
+      <%= @school.description %>
+    </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @school.city %>
-</p>
+    <p>
+      <%= @school.formatted_address.html_safe %>
+    </p>
 
-<p>
-  <strong>State:</strong>
-  <%= @school.state %>
-</p>
+    <p>
+      <%= link_to @school.url %>
+    </p>
 
-<p>
-  <strong>Zip:</strong>
-  <%= @school.zip %>
-</p>
+    <p>
+      <%= mail_to @school.email %>
+    </p>
 
-<p>
-  <strong>Url:</strong>
-  <%= @school.url %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @school.email %>
-</p>
-
-<p>
-  <strong>Approved:</strong>
-  <%= @school.approved %>
-</p>
-
-<p>
-  <strong>Created by:</strong>
-  <%= @school.created_by %>
-</p>
-
-<%= link_to 'Edit', edit_school_path(@school) %> |
-<%= link_to 'Back', schools_path %>
+    <%= link_to 'Edit', edit_school_path(@school), class: 'btn btn-primary' %>
+    <%= link_to 'Back', schools_path, class: 'btn btn-success' %>
+  </div>
+</div>
