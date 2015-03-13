@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
   has_many :items
   has_many :favorites
 
-
   validates_presence_of :fname
   validates_presence_of :lname
   validates_presence_of :email
@@ -35,10 +34,6 @@ class User < ActiveRecord::Base
   def admin?
     self.role.name == "Admin"
   end
-
-  # def seller?
-  #     self.role.name == "Seller"
-  # end
 
   def regular?
       self.role.name == "Regular"
