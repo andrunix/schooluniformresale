@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  fname: MyString
-  lname: MyString
-  email: MyString
-  phone: MyString
-  zip: MyString
-  role_id: 
+  fname: Joseph
+  lname: Sniddle
+  email: sniddle@example.com
+  phone: 423-555-1111
+  zip: 99999
+  role_id: 1
 
 two:
-  fname: MyString
-  lname: MyString
-  email: MyString
-  phone: MyString
-  zip: MyString
-  role_id: 
+  fname: James
+  lname: Bloss
+  email: bloss@example.com
+  phone: 321-444-1111
+  zip: 88888
+  role_id: 0

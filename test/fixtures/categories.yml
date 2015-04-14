@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyString
+shirts:
+  name: Shirts
+  description: Things you wear on your top
 
-two:
-  name: MyString
-  description: MyString
+pants:
+  name: Pants
+  description: Things you wear on your legs
