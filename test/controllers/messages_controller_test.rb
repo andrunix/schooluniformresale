@@ -2,9 +2,9 @@ require 'test_helper'
 
 class MessagesControllerTest < ActionController::TestCase
   setup do
+    @message = messages(:one)
     @user = users(:one)
     sign_in @user
-    @message = messages(:one)
   end
 
   test "should get index" do

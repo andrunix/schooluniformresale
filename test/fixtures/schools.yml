@@ -1,27 +1,27 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: School One
   description: MyString
   address1: MyString
   address2: MyString
   city: MyString
-  state: MyString
-  zip: MyString
+  state: TN
+  zip: 37412
   url: MyString
-  email: MyString
-  approved: false
-  created_by: 1
+  email: email@example.com
+  approved: true
+  created_by: users(:one).id
 
 two:
-  name: MyString
+  name: School Two
   description: MyString
   address1: MyString
   address2: MyString
   city: MyString
   state: MyString
-  zip: MyString
+  zip: 37488
   url: MyString
-  email: MyString
+  email: email@example.com
   approved: false
-  created_by: 1
+  created_by: users(:two).id

@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyString
+regular:
+  name: Regular
+  description: Regular User
 
-two:
-  name: MyString
-  description: MyString
+admin:
+  name: Admin
+  description: Administrator
+
+web:
+  name: Web
+  description: Web User

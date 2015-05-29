@@ -6,7 +6,7 @@ one:
   email: sniddle@example.com
   phone: 423-555-1111
   zip: 99999
-  role_id: 1
+  role_id: roles(:admin).id
 
 two:
   fname: James
@@ -14,4 +14,4 @@ two:
   email: bloss@example.com
   phone: 321-444-1111
   zip: 88888
-  role_id: 0
+  role_id: roles(:regular).id

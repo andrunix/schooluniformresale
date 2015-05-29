@@ -2,7 +2,12 @@ require 'test_helper'
 
 class ItemsControllerTest < ActionController::TestCase
   setup do
+    @user = users(:one)
+    sign_in @user
+
     @item = items(:one)
+    @item.user_id = @user.id
+
   end
 
   test "should get index" do

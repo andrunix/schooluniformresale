@@ -1,21 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  from_user_id: 1
-  to_user_id: 1
-  parent_message_id: 1
-  subject: MyString
+  from_user_id: users(:one).id
+  to_user_id: users(:two).id
+  parent_message_id: 0
+  subject: Test Message 1
   message: MyString
-  item_id: 1
+  item_id: items(:one).id
   unread: false
   folder_id: 1
 
 two:
-  from_user_id: 1
-  to_user_id: 1
+  from_user_id: users(:two).id
+  to_user_id: users(:one).id
   parent_message_id: 1
-  subject: MyString
+  subject: Test Message 2
   message: MyString
-  item_id: 1
-  unread: false
+  item_id: items(:two).id
+  unread: true
   folder_id: 1

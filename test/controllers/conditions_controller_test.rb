@@ -2,7 +2,9 @@ require 'test_helper'
 
 class ConditionsControllerTest < ActionController::TestCase
   setup do
-    @condition = conditions(:one)
+    @condition = conditions(:good)
+    @user = users(:one)
+    sign_in @user
   end
 
   test "should get index" do
