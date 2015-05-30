@@ -42,9 +42,8 @@ gem 'font-awesome-sass', '~> 4.3.0'
 
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-
+  gem 'guard'
+  gem 'guard-minitest'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -53,5 +52,12 @@ group :development, :test do
 
   gem 'pry'
   gem 'pry-doc'
+  gem 'pry-nav'
+  gem 'fabrication'
+  gem 'awesome_print'
+  gem 'capybara-webkit'
+  gem 'capybara-screenshot'
+  gem 'selenium-webdriver'
+  gem 'minitest'
 end
 
