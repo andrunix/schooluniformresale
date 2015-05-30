@@ -12,21 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :school %><br/>
+    <%= f.label :school, "Select a school for this item" %><br/>
     <%= collection_select(:item, :school_id, current_user.schools, :id, :name, {prompt: true}) %>
   </div>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name, "Title" %><br>
+    <%= f.text_field :name, placeholder: "Enter a title for your item" %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_area :description, rows: 4, cols: 60, placeholder: "Enter a description of your item" %>
   </div>
   <div class="field">
     <%= f.label :price %><br>
-    <%= f.text_field :price %>
+    <%= f.number_field :price, placeholder: '$0.00' %>
   </div>
   <div class="field">
     <%= f.label :category %><br/>
@@ -38,6 +38,7 @@
   </div>
 
    <div class="actions">
-    <%= f.submit %>
+    <%= f.submit (@item.persisted? ? 'Update Listing' : 'Create Listing'), class: "btn btn-primary" %>
+    <%= link_to 'Cancel', (@item.persisted? ? @item : items_path), class: "btn btn-info" %>
   </div>
 <% end %>

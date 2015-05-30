@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>School</th>
-      <th>Name</th>
+      <th>Title</th>
       <th>Description</th>
       <th align="right">Price</th>
       <th>Seller</th>
@@ -17,23 +17,23 @@
       <tr>
         <td>
           <% if !item.school.nil? %>
-            <%= link_to item.school.name, item.school %>
+            <%= link_to item.school.name, item.school, title: "View School" %>
           <% end %>
         </td>
         <td><%= link_to item.name, item %></td>
-        <td><%= item.description %></td>
+        <td><%= truncate(item.description, length: 30) %></td>
         <td align="right"><%= number_to_currency(item.price) %></td>
         <td><%= item.user.name unless item.user.nil? %></td>
 
         <td>
-            <% if can? :update, item %>
-              <%= link_to 'Edit', edit_item_path(item) %>
-            <% end %>
+          <% if can? :update, item %>
+            <%= link_to "<i class='fa fa-pencil-square-o'></i>".html_safe, edit_item_path(item), { title: "Edit item" } %>
+          <% end %>
         </td>
         <td>
-            <% if can? :destroy, item %>
-                <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% end %>
+          <% if can? :destroy, item %>
+              <%= link_to "<i class='fa fa-times'></i>".html_safe, item, method: :delete, data: { confirm: 'Delete this listing?' }, title: "Delete item" %>
+          <% end %>
         </td>
       </tr>
     <% end %>

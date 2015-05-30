@@ -2,13 +2,12 @@
 
 <h1>Listing Schools</h1>
 
-<table>
+<table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th></th>
+      <th>&nbsp;</th>
       <th>Name</th>
-      <th>Address1</th>
-      <th>Address2</th>
+      <th>Address</th>
       <th>City</th>
       <th>State</th>
       <th>Zip</th>
@@ -21,23 +20,22 @@
   <tbody>
     <% @schools.each do |school| %>
       <tr>
-        <td><%= link_to 'Fav', add_fav_path(school), method: :post unless current_user.schools.include?(school) %></td>
+        <td><%= link_to '<i class="fa fa-heart-o"></i>'.html_safe, add_fav_path(school), method: :post unless current_user.schools.include?(school) %></td>
         <td><%= link_to school.name, school %></td>
-        <td><%= school.address1 %></td>
-        <td><%= school.address2 %></td>
+        <td><%= school.address1 %><br/><%= school.address2 %></td>
         <td><%= school.city %></td>
         <td><%= school.state %></td>
         <td><%= school.zip %></td>
-        <td><%= school.url %></td>
-        <td><%= school.email %></td>
+        <td><%= link_to "Web site", school.url, target: "_blank" unless school.url.blank? %></td>
+        <td><%= mail_to school.email %></td>
         <td>
           <% if can? :update, school %>
-            <%= link_to 'Edit', edit_school_path(school) %>
+            <%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_school_path(school), title: "Edit school" %>
           <% end %>
         </td>
         <td>
           <% if can? :destroy, school %>
-            <%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to '<i class="fa fa-times"></i>'.html_safe, school, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete school" %>
           <% end %>
         </td>
       </tr>
@@ -47,4 +45,4 @@
 
 <br>
 
-<%= link_to 'New School', new_school_path %>
+<%= link_to 'New School', new_school_path, class: 'btn btn-primary btn-large' %>

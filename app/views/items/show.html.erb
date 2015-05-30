@@ -30,8 +30,16 @@
       <%= @item.condition.description unless @item.condition.nil? %>
     </div>
 
-    <%= link_to 'Edit', edit_item_path(@item), class: 'btn btn-primary' %>
-    <%= link_to 'Cancel', items_path, class: 'btn btn-success' %>
+    <% if can? :update, @item %>
+      <%= link_to 'Edit this listing', edit_item_path(@item), class: 'btn btn-primary' %>
+    <% end %>
+    <% if can? :destroy, @item %>
+      <%= link_to "Delete this listing", @item, method: :delete, data: { confirm: 'Delete this listing?' }, title: "Delete item", class: "btn btn-info" %>
+    <% end %>
+
+    <br/><br/>
+
+    <%= link_to 'Items List', items_path %>
 
   </div>
 </div>

@@ -1,16 +1,17 @@
-
-<h1>Welcome to School Uniform Resale!</h1>
-
 <div class="row">
-  <div class="col-md-4 col-sm-8">
-
+    <div class="col-sm-12">
+        <h1>Welcome to School Uniform Resale!</h1>
+    </div>
+</div>
+<div class="row">
+  <div class="col-sm-8 col-md-4">
     <div class="well">
       <h3>My Schools</h3>
         <% current_user.schools.each do |school| %>
         <div>
             <%= link_to school.name, school %><br/>
             <%= school.formatted_address.html_safe %>
-            <%= "#{school.email}<br/>" unless school.email.blank? %>
+            <%= "#{school.email}" unless school.email.blank? %>
             <!--
             < % = "#{school.phone}<br/>" unless school.phone.blank? % > -->
             <%= link_to school.url unless school.url.blank? %>
@@ -20,10 +21,10 @@
     </div>
   </div>
 
-  <div class="col-md-8 col-sm-8">
+  <div class=" col-sm-8 col-md-8">
     <h3>Buy &amp; Sell</h3>
     <%= link_to "List Clothing for Sale", new_item_path %><br/>
-    <%= link_to "Browse Clothing for Sale", items_path %></br/>
+    <%= link_to "Browse Clothing for Sale", items_path %><br/>
     <hr/>
     <p>
     <%= link_to "Items I am Selling (#{current_user.items.length})", my_items_path %>

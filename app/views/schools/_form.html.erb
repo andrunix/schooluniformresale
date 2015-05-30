@@ -13,23 +13,23 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: "School name" %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description, cols: 60, rows: 4 %>
+    <%= f.text_area :description, cols: 60, rows: 4, placeholder: "Enter other information about this school (optional)" %>
   </div>
   <div class="field">
     <%= f.label :address1 %><br>
-    <%= f.text_field :address1 %>
+    <%= f.text_field :address1, placeholder: "School address line 1" %>
   </div>
   <div class="field">
     <%= f.label :address2 %><br>
-    <%= f.text_field :address2 %>
+    <%= f.text_field :address2, placeholder: "Address line 2 (optional)" %>
   </div>
   <div class="field">
     <%= f.label :city %><br>
-    <%= f.text_field :city %>
+    <%= f.text_field :city, placeholder: "City" %>
   </div>
 
   <!-- TODO : make this a dropdown -->
@@ -40,23 +40,20 @@
 
   <div class="field">
     <%= f.label :zip %><br>
-    <%= f.text_field :zip %>
+    <%= f.number_field :zip, placeholder: "Zip" %>
   </div>
   <div class="field">
     <%= f.label :url %><br>
-    <%= f.text_field :url %>
+    <%= f.url_field :url, placeholder: "Web site" %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <!-- TODO: remove this. it should only be available on the admin page -->
-  <div class="field">
-    <%= f.label :approved %><br>
-    <%= f.check_box :approved %>
+    <%= f.email_field :email, placeholder: "example@school.com" %>
   </div>
 
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save School", class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', @school, class: 'btn btn-info' %> 
   </div>
 <% end %>
