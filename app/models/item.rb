@@ -8,4 +8,7 @@ class Item < ActiveRecord::Base
   has_many :favorites
   has_and_belongs_to_many :users, join_table: :favorites
 
+  validates :name, length: { minimum: 10 }
+  validates :price, numericality: true
+
 end
