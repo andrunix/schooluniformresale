@@ -53,7 +53,9 @@ group :development, :test do
   gem 'pry'
   gem 'pry-doc'
   gem 'pry-nav'
+  gem 'mocha', require: false
   gem 'fabrication'
+  gem 'database_cleaner'
   gem 'awesome_print'
   gem 'capybara-webkit'
   gem 'capybara-screenshot'

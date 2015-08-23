@@ -4,6 +4,7 @@ one:
   fname: Joseph
   lname: Sniddle
   email: sniddle@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   phone: 423-555-1111
   zip: 99999
   role_id: roles(:admin).id
@@ -12,6 +13,7 @@ two:
   fname: James
   lname: Bloss
   email: bloss@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   phone: 321-444-1111
   zip: 88888
   role_id: roles(:regular).id

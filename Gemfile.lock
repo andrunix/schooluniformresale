@@ -74,6 +74,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    database_cleaner (1.4.1)
     debug_inspector (0.0.2)
     devise (3.5.1)
       bcrypt (~> 3.0)
@@ -125,10 +126,13 @@ GEM
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    metaclass (0.0.4)
     method_source (0.8.2)
     mime-types (2.6.1)
     mini_portile (0.6.2)
     minitest (5.7.0)
+    mocha (1.1.0)
+      metaclass (~> 0.0.1)
     multi_json (1.11.0)
     mysql2 (0.3.18)
     nenv (0.2.0)
@@ -241,6 +245,7 @@ DEPENDENCIES
   capybara-screenshot
   capybara-webkit
   coffee-rails (~> 4.1.0)
+  database_cleaner
   devise
   fabrication
   font-awesome-sass (~> 4.3.0)
@@ -249,6 +254,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   minitest
+  mocha
   mysql2
   pry
   pry-doc
