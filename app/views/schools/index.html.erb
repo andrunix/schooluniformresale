@@ -30,12 +30,12 @@
         <td><%= mail_to school.email %></td>
         <td>
           <% if can? :update, school %>
-            <%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_school_path(school), title: "Edit school" %>
+            <%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_school_path(school), title: "Edit school", id: 'edit' %>
           <% end %>
         </td>
         <td>
           <% if can? :destroy, school %>
-            <%= link_to '<i class="fa fa-times"></i>'.html_safe, school, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete school" %>
+            <%= link_to '<i class="fa fa-times"></i>'.html_safe, school, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete school", id: 'delete' %>
           <% end %>
         </td>
       </tr>
