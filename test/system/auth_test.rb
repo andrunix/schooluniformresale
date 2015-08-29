@@ -14,11 +14,11 @@ describe "authorization" do
       assert has_content? "Welcome to School Uniform Resale"
     end
 
-  #   it "shows error message with invalid login" do
-  #     visit ideas_path
-  #     attempt_login_with(user.email, "wrongpassword")
-  #     assert has_content? t('flash.errors.login_failure')
-  #   end
+    it "shows error message with invalid login" do
+      visit new_user_session_path
+      attempt_login_with(user.email, "wrongpassword")
+      assert has_content? "Invalid email or password"
+    end
 
   #   it "disables login ability if a user is not active" do
   #     visit ideas_path

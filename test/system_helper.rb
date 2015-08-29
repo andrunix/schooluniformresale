@@ -61,6 +61,8 @@ module SystemHelper
 
   # Login into the app with the given user
   def stub_user_session(user)
+    puts "********* stub_user_session "
+    puts user.to_yaml
     login_as(user)
   end
 
