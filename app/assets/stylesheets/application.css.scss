@@ -22,10 +22,13 @@
 body {
   padding-top: 60px;
 }
+
 @media (max-width: 979px) {
+  /* Not sure why this was ever added
   body {
     padding-top: 0px;
   }
+  */
 }
 
 h1 {
