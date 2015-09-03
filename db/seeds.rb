@@ -15,6 +15,7 @@ u2 = User.create({fname: "Sue", lname: "Blue", email: "sue@example.com", passwor
 u3 = User.create({fname: "Kev", lname: "Simmons", email: "kev@example.com", password: "aaaaaaaa", password_confirmation: "aaaaaaaa", role_id: r1.id})
 u4 = User.create({fname: "Jack", lname: "Black", email: "jack@example.com", password: "aaaaaaaa", password_confirmation: "aaaaaaaa", role_id: r3.id})
 
+s0 = School.new({ name: 'Generic School', email: '', url: '', city: '', state: '', zip: ''})
 s1 = School.new({ name: 'Belvoir Christian Academy', email: 'info@bcalions.org', url: 'http://bcalions.org', city: 'Chattanooga', state: 'TN', zip: '37412'})
 s2 = School.new({ name: 'Brainerd Baptist Academy', email: 'info@brainerdbapt.org', url: 'http://brainerdbapt.org', city: 'Chattanooga', state: 'TN', zip: '37411'})
 
