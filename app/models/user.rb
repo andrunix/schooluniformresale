@@ -39,4 +39,8 @@ class User < ActiveRecord::Base
       self.role.name == "Regular"
   end
 
+  def address
+    "#{self.city}, #{self.state}" if self.city.present? && self.state.present?
+  end
+
 end

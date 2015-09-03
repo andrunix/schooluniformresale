@@ -17,7 +17,10 @@
     <div class="form-group">
       <label>Seller:</label>
       <%= link_to @item.user.name, @item.user unless @item.user.nil? %> 
-      <%= link_to icon('envelope-o'), messages_path %>
+      
+      <!-- TODO make create a new message to the seller prepopulating item and subject -->
+      <%= link_to icon('envelope-o'), messages_path %><br/>
+      <%= @item.user.address %>
     </div>
 
     <div class="form-group">
