@@ -26,6 +26,11 @@
     </div>
 
     <div class="form-group">
+      <label>Size: </label>
+      <%= @item.size %>
+    </div>
+
+    <div class="form-group">
       <label>Condition:</label>
       <%= @item.condition.description unless @item.condition.nil? %>
     </div>

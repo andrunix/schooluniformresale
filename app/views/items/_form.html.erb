@@ -25,6 +25,12 @@
     <%= f.text_area :description, rows: 4, cols: 60, placeholder: "Enter a description of your item" %>
   </div>
   <div class="field">
+    <%= f.label :size %><br/>
+    <%= f.select(:size, options_for_select([["XS", "XS"], ["S", "S"], ["M", "M"], ["L", "L"], ["XL", "XL"], ["XXL", "XXL"], ["XXXL", "XXXL"],
+      ["0", "0"], ["2", "2"], ["4", "4"], ["6", "6"], ["8", "8"], ["10", "10"], ["12", "12"], ["14", "14"], ["16", "16"], ["18", "18"]],
+      @item.size)) %>
+  </div>
+  <div class="field">
     <%= f.label :price %><br>
     <%= f.number_field :price, placeholder: '$0.00' %>
   </div>
