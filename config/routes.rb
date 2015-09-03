@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   get 'my_items' => 'items#my_items', as: :my_items
   post 'add_fav/:school_id' => 'users#add_fav', as: :add_fav
 
+  get 'help' => 'welcome#help'
+  get 'whats_new' => 'welcome#whats_new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
