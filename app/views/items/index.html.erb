@@ -7,6 +7,7 @@
       <th>Title</th>
       <th>Description</th>
       <th>Size</th>
+      <th>Quantity</th>
       <th align="right">Price</th>
       <th>Seller</th>
       <th colspan="2"></th>
@@ -24,6 +25,7 @@
         <td><%= link_to item.name, item %></td>
         <td><%= truncate(item.description, length: 30) %></td>
         <td><%= item.size %></td>
+        <td><%= item.price %></td>
         <td align="right"><%= number_to_currency(item.price) %></td>
         <td><%= item.user.name unless item.user.nil? %></td>
 
