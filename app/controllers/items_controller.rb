@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
   def create
     # @item = Item.new(item_params)
     @item.user_id = current_user.id
+    @item.expires_on = 90.days.from_now
 
     respond_to do |format|
       if @item.save
@@ -86,6 +87,6 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:name, :description, :price, 
         :user_id, :category_id, :condition_id, :school_id, :size,
-        :brand, :quantity, :image)
+        :brand, :quantity, :image, :expires_on)
     end
 end
