@@ -17,10 +17,12 @@
     <div class="form-group">
       <label>Seller:</label>
       <%= link_to @item.user.name, @item.user unless @item.user.nil? %> 
-      
+
       <!-- TODO make create a new message to the seller prepopulating item and subject -->
       <%= link_to icon('envelope-o'), messages_path %><br/>
       <%= @item.user.address %>
+
+      <%= link_to "Add Friend", user_friends_path(friend_id: @item.user), method: :post %>
     </div>
 
     <div class="form-group">

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :roles
 
+  resources :user_friends
+
 
   authenticated :user do
     # root to: "items#index", as: :authenticated_root
