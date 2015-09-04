@@ -46,4 +46,12 @@ class User < ActiveRecord::Base
     "#{self.city}, #{self.state}" if self.city.present? && self.state.present?
   end
 
+  def item_in_favorites?(id) 
+    return !(self.favorites.index { |f| f.item_id == id }).nil?
+  end
+
+  def find_favorite(id) 
+    return self.favorites.find { |f| f.item_id == id }
+  end
+
 end

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :roles
 
   resources :user_friends
+  resources :favorites
 
 
   authenticated :user do
