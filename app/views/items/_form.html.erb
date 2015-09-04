@@ -1,4 +1,4 @@
-<%= form_for(@item) do |f| %>
+<%= form_for(@item, :html => {:multipart => true }) do |f| %>
   <% if @item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
@@ -49,6 +49,11 @@
   <div class="field">
     <%= f.label :condition %><br/>
     <%= collection_select(:item, :condition_id, Condition.all, :id, :description, {prompt: true}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %><br/>
+    <%= f.file_field :image %>
   </div>
 
    <div class="actions">

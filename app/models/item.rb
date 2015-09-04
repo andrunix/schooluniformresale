@@ -11,4 +11,6 @@ class Item < ActiveRecord::Base
   validates :name, length: { minimum: 10 }
   validates :price, numericality: true
 
+  mount_uploader :image, ImageUploader
+
 end

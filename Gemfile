@@ -39,6 +39,8 @@ gem 'cancancan', '~> 1.10'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 4.3.0'
+gem 'rmagick'
+gem 'carrierwave'
 
 
 group :development, :test do
