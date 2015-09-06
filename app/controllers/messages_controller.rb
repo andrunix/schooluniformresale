@@ -5,12 +5,14 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
+    # @messages = Message.where(to_user_id: current_user.id)
+    @messages = current_user.incoming_messages
   end
 
   # GET /messages/1
   # GET /messages/1.json
   def show
+    @message.update_attribute(:unread, false)
   end
 
   # GET /messages/new

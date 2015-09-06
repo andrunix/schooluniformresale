@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :users_schools
   has_and_belongs_to_many :schools, join_table: :users_schools
-  has_many :messages, foreign_key: :from_user_id
+  has_many :sent_messages, foreign_key: :from_user_id, class_name: "Message"
   has_many :incoming_messages, foreign_key: :to_user_id, class_name: "Message"
 
   has_many :items

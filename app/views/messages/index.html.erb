@@ -7,18 +7,17 @@
     <tr>
       <th>From</th>
       <th>Subject</th>
-      <th>Item</th>
-      <th colspan="2"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @messages.each do |message| %>
+      <% b = message.unread ? "<strong>" : "" %>
+      <% eb = message.unread ? "</strong>" : "" %>
       <tr>
-        <td><%= message.user.name %></td>
-        <td><%= message.subject %></td>
-        <td><%= message.item.name %></td>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
+        <td><%= "#{b}#{message.sender.name}#{eb}".html_safe %></td>
+        <td><%= link_to "#{b}#{message.subject}#{eb} - <span class=\"muted\">#{truncate(message.message)}</span>".html_safe, message %></td>
         <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

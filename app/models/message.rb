@@ -1,4 +1,4 @@
 class Message < ActiveRecord::Base
-  belongs_to :user, foreign_key: :from_user_id
+  belongs_to :sender, foreign_key: :from_user_id, class_name: "User"
   belongs_to :item 
-end
+ end
