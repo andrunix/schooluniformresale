@@ -39,11 +39,21 @@
     <%= link_to "Inbox : #{current_user.incoming_messages.length} / #{current_user.unread_messages.length}", messages_path, id: "inbox" %>
     </p>
 
-    <h3>Friends</h3>
-
+    <h3>Friends (<%= current_user.friends.length %>)</h3>
+    <% if current_user.friends.length == 0 %>
     <p>
       It looks like you don't have any School Uniform Friends yet. Why not invite someone to join now?
     </p>
+    <% else %>
+        <% current_user.top_friends.each do |f| %>
+            <div class="row">
+                <div class="col-sm-12">
+                    <strong><%= link_to f.name, f %></strong>
+                </div>
+            </div>
+        <% end %>
+        <!-- %= link_to "See all....", current_user.friends % -->
+    <% end %>
 
     <a href="#">Invite a friend</a>
 

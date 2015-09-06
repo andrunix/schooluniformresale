@@ -47,15 +47,20 @@ class User < ActiveRecord::Base
   end
 
   def item_in_favorites?(id) 
-    return !(self.favorites.index { |f| f.item_id == id }).nil?
+    !(self.favorites.index { |f| f.item_id == id }).nil?
   end
 
   def find_favorite(id) 
-    return self.favorites.find { |f| f.item_id == id }
+    self.favorites.find { |f| f.item_id == id }
   end
 
   def unread_messages
     self.incoming_messages.select { |i| i.unread == true }
+  end
+
+  def top_friends
+    # this is an arbitrary limit on how many friends to show
+    self.friends.limit(4)
   end
 
 end
