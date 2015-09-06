@@ -77,6 +77,17 @@
       <%= link_to "Delete this listing", @item, method: :delete, data: { confirm: 'Delete this listing?' }, title: "Delete item", class: "btn btn-info" %>
     <% end %>
 
+    <div>
+      <h3>Leave a message for the seller</h3>
+      <%= form_for(@message, url: messages_path(@message)) do |f| %>
+      <%= f.hidden_field :item_id %>
+      <%= f.hidden_field :to_user_id %>
+      <%= f.text_area :message, placeholder: 'Type your message here' %>
+      <%= f.submit "Send", class: 'btn btn-default btn-success' %>
+      <% end %>
+
+    </div>
+
     <br/><br/>
 
     <%= link_to 'Items List', items_path %>

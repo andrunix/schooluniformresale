@@ -27,9 +27,17 @@ class MessagesController < ApplicationController
   def create
     #@message = Message.new(message_params)
 
+    item = Item.find(@message.item_id)
+
+    return if item.nil?
+
+    @message.from_user_id = current_user.id
+    @message.subject = "#{item.name}"
+    @message.unread = true
+
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
+        format.html { redirect_to item, notice: 'Message was successfully sent.' }        
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }

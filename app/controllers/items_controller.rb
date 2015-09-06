@@ -24,6 +24,10 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    # This is for the "contact the seller" form on the show page
+    @message = Message.new
+    @message.item_id = @item.id
+    @message.to_user_id = @item.user_id
   end
 
   # GET /items/new
