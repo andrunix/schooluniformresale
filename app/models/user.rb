@@ -54,4 +54,8 @@ class User < ActiveRecord::Base
     return self.favorites.find { |f| f.item_id == id }
   end
 
+  def unread_messages
+    self.incoming_messages.select { |i| i.unread == true }
+  end
+
 end

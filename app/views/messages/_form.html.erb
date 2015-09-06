@@ -12,17 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :from_user_id %><br>
-    <%= f.number_field :from_user_id %>
-  </div>
-  <div class="field">
     <%= f.label :to_user_id %><br>
     <%= f.number_field :to_user_id %>
   </div>
-  <div class="field">
-    <%= f.label :parent_message_id %><br>
-    <%= f.number_field :parent_message_id %>
-  </div>
+
   <div class="field">
     <%= f.label :subject %><br>
     <%= f.text_field :subject %>
@@ -31,12 +24,9 @@
     <%= f.label :message %><br>
     <%= f.text_area :message, rows: 10, cols: 80 %>
   </div>
-  <div class="field">
-    <%= f.label :item_id %><br>
-    <%= f.number_field :item_id %>
-  </div>
+
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Send", class: "btn btn-success" %>
   </div>
 <% end %>

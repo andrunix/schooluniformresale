@@ -36,7 +36,7 @@
     <hr/>
     <h3>Messages</h3>
     <p>
-    <%= link_to "Inbox : #{current_user.messages.length} / 0", messages_path, id: "inbox" %>
+    <%= link_to "Inbox : #{current_user.incoming_messages.length} / #{current_user.unread_messages.length}", messages_path, id: "inbox" %>
     </p>
 
     <h3>Friends</h3>
