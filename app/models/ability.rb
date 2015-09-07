@@ -26,6 +26,10 @@ class Ability
             this_user == user
         end
 
+        can :friends, User do |this_user|
+            this_user == user
+        end
+
     end
     
     # Define abilities for the passed in user here. For example:

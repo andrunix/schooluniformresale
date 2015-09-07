@@ -95,6 +95,10 @@ class UsersController < ApplicationController
   end
 
 
+  def friends
+    @friends = current_user.friends
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
