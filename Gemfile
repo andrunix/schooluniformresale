@@ -41,7 +41,8 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 4.3.0'
 gem 'rmagick'
 gem 'carrierwave'
-
+gem 'fog'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'letter_opener'
