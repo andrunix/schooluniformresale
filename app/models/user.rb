@@ -50,6 +50,17 @@ class User < ActiveRecord::Base
     !(self.favorites.index { |f| f.item_id == id }).nil?
   end
 
+  # pass a user Id and return true if it is in the current user's list of friends
+  def friends?(id)
+    !(self.friends.index { |f| f.id == id }).nil?
+  end
+
+  def friend_date(id) 
+    # find the user_friend for this user
+    uf = self.user_friends.find { |x| x.friend_id == id }
+    uf.add_date.strftime("%b %e %Y")
+  end
+
   def find_favorite(id) 
     self.favorites.find { |f| f.item_id == id }
   end

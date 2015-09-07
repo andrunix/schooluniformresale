@@ -26,7 +26,7 @@
             <%= message.created_at.strftime("%b %e") %>
           <% end %>
         </td>
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

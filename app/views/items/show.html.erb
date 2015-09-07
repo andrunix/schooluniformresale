@@ -22,12 +22,20 @@
     <div class="form-group">
       <label>Seller:</label>
       <%= link_to @item.user.name, @item.user unless @item.user.nil? %> 
-
-      <!-- TODO make create a new message to the seller prepopulating item and subject -->
-      <%= link_to icon('envelope-o'), messages_path %><br/>
       <%= @item.user.address %>
 
-      <%= link_to "Add Friend", user_friends_path(friend_id: @item.user), method: :post %>
+
+      <% if current_user.id != @item.user.id %>
+        <div>
+        <% if !current_user.friends?(@item.user.id) %>
+          <%= link_to '<i class="fa fa-user-plus"></i> Add Friend'.html_safe, user_friends_path(friend_id: @item.user), 
+            method: :post %>
+        <% else %>
+          <%= "Friends since #{current_user.friend_date(@item.user.id)}" %>
+        <% end %>
+        </div>
+      <% end %>
+
     </div>
 
     <div class="form-group">
