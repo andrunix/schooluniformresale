@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     # @messages = Message.where(to_user_id: current_user.id)
-    @messages = current_user.incoming_messages
+    @messages = current_user.incoming_messages.order(created_at: :desc)
   end
 
   # GET /messages/1
@@ -25,17 +25,36 @@ class MessagesController < ApplicationController
   def edit
   end
 
+  # GET /messages/1/reply
+  def reply
+    logger.debug "***** reply called"
+    message = Message.find(params[:id])
+
+    return if message.nil?
+
+    @message = Message.new(parent_message_id: params[:id],
+      item_id: message.item_id,
+      from_user_id: current_user.id,
+      to_user_id: message.from_user_id,
+      subject: "Re: #{message.subject}")
+  end
+
   # POST /messages
   # POST /messages.json
   def create
     #@message = Message.new(message_params)
+
+    if @message.parent_message_id.present?
+      parent_message = Message.find(@message.parent_message_id)
+      @message.to_user_id = parent_message.from_user_id
+    end
 
     item = Item.find(@message.item_id)
 
     return if item.nil?
 
     @message.from_user_id = current_user.id
-    @message.subject = "#{item.name}"
+    @message.subject = "#{item.name}" unless @message.subject.present?
     @message.unread = true
 
     respond_to do |format|

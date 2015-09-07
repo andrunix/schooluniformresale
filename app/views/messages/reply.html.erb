@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h1><%= @message.subject %></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h2>To: <%= @message.recipient.name %></h2>
+  </div>
+</div>
+
+<%= form_for(@message) do |f| %>
+  <%= f.hidden_field(:parent_message_id) %>
+  <%= f.hidden_field(:item_id) %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="well">
+      <%= f.text_area :message, rows: 10, cols: 80 %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <!-- %= f.submit '<i class="fa fa-send-o"></i>'.html_safe, class: "btn btn-success" % --> 
+
+    <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Send message">
+      <i class="fa fa-send-o"></i>
+    </button>
+
+      <!-- message_path,
+      data: { toggle: "tooltip", placement: "bottom" }, title: "Send message",
+      method: :post % --> 
+
+    <%= link_to '<i class="fa fa-inbox"></i> Inbox'.html_safe, messages_path, class: 'btn btn-default', 
+      data: { toggle: "tooltip", placement: "bottom" }, title: "Back to Inbox" %>    
+  </div>
+</div>
+
+<% end %>
+

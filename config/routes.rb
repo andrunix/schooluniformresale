@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   resources :messages
+
+  get 'messages/:id/reply' => 'messages#reply', as: :reply_message
+
   resources :conditions
   resources :categories
 

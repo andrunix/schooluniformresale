@@ -5,30 +5,34 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-        can :read, Item
-        can :create, Item
-        can :update, Item do |item|
-            item.try(:user) == user
-        end
-        can :destroy, Item do |item|
-            item.try(:user) == user
-        end
-        can :read, Category
-        can :read, School
-        can :create, School
+      can :read, Item
+      can :create, Item
+      can :update, Item do |item|
+        item.try(:user) == user
+      end
+      can :destroy, Item do |item|
+        item.try(:user) == user
+      end
+      can :read, Category
+      can :read, School
+      can :create, School
 
-        can :create, Message
-        can :read, Message do |message|
-            message.try(:user) == user
-        end
+      can :create, Message
+      can :read, Message, :to_user_id => user.id
+      can :destroy, Message, :to_user_id => user.id 
+      can :reply, Message, :to_user_id => user.id
 
-        can :add_fav, User do |this_user|
-            this_user == user
-        end
+      can :add_fav, User do |this_user|
+        this_user == user
+      end
 
-        can :friends, User do |this_user|
-            this_user == user
-        end
+      can :my_items, Item do |this_user|
+        this_user == user
+      end
+
+      can :friends, User do |this_user|
+        this_user == user
+      end
 
     end
     

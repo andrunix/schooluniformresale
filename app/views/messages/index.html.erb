@@ -8,6 +8,7 @@
       <th>From</th>
       <th>Subject</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -18,6 +19,13 @@
       <tr>
         <td><%= "#{b}#{message.sender.name}#{eb}".html_safe %></td>
         <td><%= link_to "#{b}#{message.subject}#{eb} - <span class=\"muted\">#{truncate(message.message)}</span>".html_safe, message %></td>
+        <td align="right">
+          <% if message.created_at > Time.now.midnight %>
+            <%= message.created_at.strftime("%l:%M %P") %>
+          <% else %>
+            <%= message.created_at.strftime("%b %e") %>
+          <% end %>
+        </td>
         <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

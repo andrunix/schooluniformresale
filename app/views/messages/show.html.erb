@@ -1,19 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>From:</strong>
-  <%= @message.sender.name %>
-</p>
+<div class="row">
+  <div class="col-sm-12">
+    <h1><%= @message.subject %></h1>
+  </div>
+</div>
 
-<p>
-  <strong>Subject:</strong>
-  <%= @message.subject %>
-</p>
+<div class="row">
+  <div class="col-sm-12">
+    <h2><%= @message.sender.name %></h2>
+  </div>
+</div>
 
-<p>
-  <strong>Message:</strong>
-  <%= @message.message %>
-</p>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="well">
+      <%= @message.message %>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_message_path(@message) %> |
-<%= link_to 'Back', messages_path %>
+<div class="row">
+  <div class="col-sm-12">
+    <%= link_to '<i class="fa fa-reply"></i> Reply'.html_safe, reply_message_path(@message), 
+      class: 'btn btn-default',
+      data: { toggle: "tooltip", placement: "bottom" }, title: "Reply to sender" %> 
+
+    <%= link_to '<i class="fa fa-trash"></i>'.html_safe, reply_message_path(@message), method: :delete, 
+      class: 'btn btn-default',
+      data: { toggle: "tooltip", placement: "bottom" }, title: "Delete this message" %>
+
+    <%= link_to '<i class="fa fa-inbox"></i> Inbox'.html_safe, messages_path, class: 'btn btn-default', 
+      data: { toggle: "tooltip", placement: "bottom" }, title: "Back to Inbox" %>    
+  </div>
+</div>
+
