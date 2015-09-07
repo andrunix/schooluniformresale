@@ -22,7 +22,7 @@ describe "Message Management" do
       visit root_path
       assert has_link?("inbox")
       click_link "inbox"
-      assert has_content?("Listing Messages")
+      assert has_content?("Your Messages")
     end
   end
 
