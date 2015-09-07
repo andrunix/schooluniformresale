@@ -26,7 +26,7 @@
       class: 'btn btn-default',
       data: { toggle: "tooltip", placement: "bottom" }, title: "Reply to sender" %> 
 
-    <%= link_to '<i class="fa fa-trash"></i>'.html_safe, reply_message_path(@message), method: :delete, 
+    <%= link_to '<i class="fa fa-trash"></i>'.html_safe, @message, method: :delete, 
       class: 'btn btn-default',
       data: { toggle: "tooltip", placement: "bottom" }, title: "Delete this message" %>
 

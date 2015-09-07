@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :to_user_id %><br>
-    <%= f.number_field :to_user_id %>
+    <%= f.label "Select a friend to message:" %><br>
+    <%= f.collection_select(:to_user_id, current_user.friends, :id, :name ) %>
   </div>
 
   <div class="field">
@@ -27,6 +27,8 @@
 
 
   <div class="actions">
-    <%= f.submit '<i class="fa fa-send-o"></i>'.html_safe, class: "btn btn-success" %>
+    <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Send message">
+      <i class="fa fa-send-o"></i>
+    </button>
   </div>
 <% end %>

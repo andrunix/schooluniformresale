@@ -1,37 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Messages</h1>
+<h1>Your Messages</h1>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>From</th>
-      <th>Subject</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @messages.each do |message| %>
-      <% b = message.unread ? "<strong>" : "" %>
-      <% eb = message.unread ? "</strong>" : "" %>
+<% if @messages.count > 0 %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= "#{b}#{message.sender.name}#{eb}".html_safe %></td>
-        <td><%= link_to "#{b}#{message.subject}#{eb} - <span class=\"muted\">#{truncate(message.message)}</span>".html_safe, message %></td>
-        <td align="right">
-          <% if message.created_at > Time.now.midnight %>
-            <%= message.created_at.strftime("%l:%M %P") %>
-          <% else %>
-            <%= message.created_at.strftime("%b %e") %>
-          <% end %>
-        </td>
-        <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>From</th>
+        <th>Subject</th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @messages.each do |message| %>
+        <% b = message.unread ? "<strong>" : "" %>
+        <% eb = message.unread ? "</strong>" : "" %>
+        <tr>
+          <td><%= "#{b}#{message.sender.name}#{eb}".html_safe %></td>
+          <td><%= link_to "#{b}#{message.subject}#{eb} - <span class=\"muted\">#{truncate(message.message)}</span>".html_safe, message %></td>
+          <td align="right">
+            <% if message.created_at > Time.now.midnight %>
+              <%= message.created_at.strftime("%l:%M %P") %>
+            <% else %>
+              <%= message.created_at.strftime("%b %e") %>
+            <% end %>
+          </td>
+          <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="well">
+      It appears you don't have any messages right now. You can send messages to your School Uniform Resale
+      friends by clicking the New Message button below or by commenting on items for sale.
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <br>
 
-<%= link_to 'New Message', new_message_path %>
+<%= link_to 'New Message', new_message_path, class: 'btn btn-large btn-info' %>

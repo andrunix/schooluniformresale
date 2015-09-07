@@ -49,17 +49,21 @@ class MessagesController < ApplicationController
       @message.to_user_id = parent_message.from_user_id
     end
 
-    item = Item.find(@message.item_id)
-
-    return if item.nil?
+    item = Item.find(@message.item_id) if @message.item_id.present?
 
     @message.from_user_id = current_user.id
-    @message.subject = "#{item.name}" unless @message.subject.present?
+    if !@message.subject.present?
+      if item != nil
+        @message.subject = "#{item.name}"
+      else
+        @message.subject = params[:subject]
+      end
+    end
     @message.unread = true
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to item, notice: 'Message was successfully sent.' }        
+        format.html { redirect_to (item != nil) ? item : messages_path, notice: 'Message was successfully sent.' }        
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }
@@ -87,7 +91,7 @@ class MessagesController < ApplicationController
   def destroy
     @message.destroy
     respond_to do |format|
-      format.html { redirect_to messages_url, notice: 'Message was successfully destroyed.' }
+      format.html { redirect_to messages_url, notice: 'Message deleted.' }
       format.json { head :no_content }
     end
   end
