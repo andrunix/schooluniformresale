@@ -94,9 +94,21 @@ class UsersController < ApplicationController
     end
   end
 
-
   def friends
     @friends = current_user.friends
+  end
+
+  def invite
+  end
+
+  def send_invitations
+    # Send an invitation to each of the listed emails
+    UserMailer.invitation(params[:email1], params[:message], current_user.name).deliver if params[:email1].present?
+    UserMailer.invitation(params[:email2], params[:message], current_user.name).deliver if params[:email2].present?
+    UserMailer.invitation(params[:email3], params[:message], current_user.name).deliver if params[:email3].present?
+    UserMailer.invitation(params[:email4], params[:message], current_user.name).deliver if params[:email4].present?
+    UserMailer.invitation(params[:email5], params[:message], current_user.name).deliver if params[:email5].present?
+    redirect_to root_path, notice: 'Thank you! Your invitations have been sent.'
   end
 
 

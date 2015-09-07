@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   get 'help' => 'welcome#help'
   get 'whats_new' => 'welcome#whats_new'
   get 'friends' => 'users#friends'
+  get 'invite' => 'users#invite'
+  post 'invite' => 'users#send_invitations'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

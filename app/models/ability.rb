@@ -21,6 +21,8 @@ class Ability
       can :read, Message, :to_user_id => user.id
       can :destroy, Message, :to_user_id => user.id 
       can :reply, Message, :to_user_id => user.id
+      can :invite, User
+      can :send_invitations, User
 
       can :add_fav, User do |this_user|
         this_user == user

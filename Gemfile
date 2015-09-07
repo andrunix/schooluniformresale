@@ -44,6 +44,7 @@ gem 'carrierwave'
 
 
 group :development, :test do
+  gem 'letter_opener'
   gem 'guard'
   gem 'guard-minitest'
   # Access an IRB console on exception pages or by using <%= console %> in views
