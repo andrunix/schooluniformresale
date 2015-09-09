@@ -70,6 +70,10 @@
     </div>
 
     <div class="form-group">
+      <%= "#{pluralize(@item.users.count, 'person')} added this item to their favorites" %>
+    </div>
+
+    <div class="form-group">
       <% if !current_user.item_in_favorites?(@item.id) %>
         <%= link_to "Add to favorites", favorites_path(item_id: @item.id), method: :post %>
       <% else %>

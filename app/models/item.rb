@@ -6,7 +6,7 @@ class Item < ActiveRecord::Base
   belongs_to :school
   has_many :messages
   has_many :favorites
-  has_and_belongs_to_many :users, join_table: :favorites
+  has_and_belongs_to_many :users, join_table: :favorites, foreign_key: :item_id
 
   validates :name, length: { minimum: 10 }
   validates :price, numericality: true
