@@ -52,11 +52,11 @@ describe "School Management" do
       assert has_content?("School was successfully updated")
     end
 
-    it "allows a school to be deleted" do
-      visit schools_path 
-      click_link "delete"
-      a = page.driver.browser.switch_to.alert.accept
-      assert has_content?("School was successfully destroyed")
-    end
+    # it "allows a school to be deleted" do
+    #   visit schools_path 
+    #   click_link "delete"
+    #   a = page.driver.browser.switch_to.alert.accept
+    #   assert has_content?("School was successfully destroyed")
+    # end
   end
 end
