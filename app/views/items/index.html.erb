@@ -1,5 +1,9 @@
 <h1>Items for Sale</h1>
 
+<!-- TODO: Use a bootstrap toggle -->
+<%= check_box_tag 'user_schools', @only_user_schools, data: { toggle: "toggle" } %> Show my schools only
+<!-- <input type="checkbox" checked data-toggle="toggle"> Show my schools only -->
+
 <table class="table table-striped table-hover">
   <thead>
     <tr>
