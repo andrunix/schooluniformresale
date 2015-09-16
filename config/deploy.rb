@@ -62,6 +62,9 @@ task :deploy => :environment do
   to :before_hook do
     # Put things to run locally before ssh
   end
+  queue 'export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims'
+  queue 'echo "path=$PATH"'
+  
   deploy do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
