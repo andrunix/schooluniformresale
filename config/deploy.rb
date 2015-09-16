@@ -14,7 +14,8 @@ set :application, "sur.codescience.us"
 set :domain, "sur.codescience.us"
 set :deploy_to, "/home/deploy/apps/#{application}"
 set :repository, 'git@github.com:andrunix/schooluniformresale.git'
-set :branch, 'master'
+# set :branch, 'master'
+set :branch, 'staging'
 set :user, 'deploy'
 set :forward_agent, true
 set :rails_env, 'staging'
@@ -64,6 +65,7 @@ task :deploy => :environment do
   end
   queue 'export PATH=$PATH:$HOME/.rbenv/bin:$HOME/.rbenv/shims'
   queue 'echo "path=$PATH"'
+  queue 'echo `which bundle`'
 
   deploy do
     # Put things that will set up an empty directory into a fully set-up
