@@ -65,5 +65,7 @@ group :development, :test do
   gem 'capybara-screenshot'
   gem 'selenium-webdriver'
   gem 'minitest'
+  gem 'mina'
+  gem 'mina-multistage', require: false
 end
 
