@@ -11,6 +11,8 @@ require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :application, "sur.codescience.us"
+
+# domain can just be the IP
 set :domain, "sur.codescience.us"
 set :deploy_to, "/home/deploy/apps/#{application}"
 set :repository, 'git@github.com:andrunix/schooluniformresale.git'
