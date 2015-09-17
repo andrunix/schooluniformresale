@@ -30,12 +30,7 @@ set :shared_paths, ['config/database.yml', 'config/secrets.yml', 'log', 'config/
 # This task is the environment that is loaded for most commands, such as
 # `mina deploy` or `mina rake`.
 task :environment do
-  # If you're using rbenv, use this to load the rbenv environment.
-  # Be sure to commit your .ruby-version or .rbenv-version to your repository.
   invoke :'rbenv:load'
-
-  # For those using RVM, use this to load an RVM version@gemset.
-  # invoke :'rvm:use[ruby-1.9.3-p125@default]'
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.
@@ -65,11 +60,12 @@ task :deploy => :environment do
   to :before_hook do
     # Put things to run locally before ssh
   end
-  queue 'export PATH=$PATH:$HOME/.rbenv/bin:$HOME/.rbenv/shims'
-  queue 'echo "path=$PATH"'
-  queue 'echo `which bundle`'
+  # queue 'export PATH=$PATH:$HOME/.rbenv/bin:$HOME/.rbenv/shims'
+  # queue 'echo "path=$PATH"'
+  # queue 'echo `which bundle`'
 
   deploy do
+    queue 'echo "PATH = $PATH"'    
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
     invoke :'git:clone'
