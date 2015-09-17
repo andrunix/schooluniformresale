@@ -2,7 +2,6 @@ require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
 require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
-# require 'mina/rvm'    # for rvm support. (http://rvm.io)
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
@@ -10,17 +9,16 @@ require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :application, "sur.codescience.us"
-
-# domain can just be the IP
-set :domain, "sur.codescience.us"
+set :rails_env, 'staging'
 set :deploy_to, "/home/deploy/apps/#{application}"
+
+set :application, "sur.codescience.us"
+set :domain, "sur.codescience.us"
 set :repository, 'git@github.com:andrunix/schooluniformresale.git'
-# set :branch, 'master'
-set :branch, 'staging'
 set :user, 'deploy'
 set :forward_agent, true
-set :rails_env, 'staging'
+set :branch, 'staging'
+
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
@@ -45,7 +43,7 @@ task :setup => :environment do
 
   queue! %[touch "#{deploy_to}/#{shared_path}/config/database.yml"]
   queue! %[touch "#{deploy_to}/#{shared_path}/config/secrets.yml"]
-  # queue  %[echo "-----> Be sure to edit '#{deploy_to}/#{shared_path}/config/database.yml' and 'secrets.yml'."]
+  queue  %[echo "-----> Be sure to edit '#{deploy_to}/#{shared_path}/config/database.yml' and 'secrets.yml'."]
 
   # queue %[
   #  repo_host=`echo $repo | sed -e 's/.*@//g' -e 's/:.*//g'` &&
@@ -57,15 +55,14 @@ end
 
 desc "Deploys the current version to the server."
 task :deploy => :environment do
-  to :before_hook do
-    # Put things to run locally before ssh
-  end
-  # queue 'export PATH=$PATH:$HOME/.rbenv/bin:$HOME/.rbenv/shims'
-  # queue 'echo "path=$PATH"'
-  # queue 'echo `which bundle`'
+  # to :before_hook do
+  #   # Put things to run locally before ssh
+  # end
+
+  queue! 'export PATH=$PATH:/usr/local/rbenv/shims'
 
   deploy do
-    queue 'echo "PATH = $PATH"'    
+    queue! 'echo "PATH = $PATH"'    
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
     invoke :'git:clone'
