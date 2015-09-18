@@ -9,10 +9,9 @@ require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
+set :application, "sur.codescience.us"
 set :rails_env, 'staging'
 set :deploy_to, "/home/deploy/apps/#{application}"
-
-set :application, "sur.codescience.us"
 set :domain, "sur.codescience.us"
 set :repository, 'git@github.com:andrunix/schooluniformresale.git'
 set :user, 'deploy'
