@@ -65,7 +65,7 @@ task :deploy => :environment do
   deploy do
 
     # This shouldn't have to be here but for some reason, I have to set the rbenv path here
-    queue! 'export PATH=$PATH:/usr/local/rbenv/shims'
+    # queue! 'export PATH=$PATH:/usr/local/rbenv/shims'
 
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
