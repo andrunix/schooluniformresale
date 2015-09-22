@@ -14,7 +14,7 @@ set :application, "sur.codescience.us"
 set :domain, "sur.codescience.us"
 set :deploy_to, "/home/deploy/apps/#{application}"
 set :repository, 'git@github.com:andrunix/schooluniformresale.git'
-set :branch, 'master'
+set :branch, 'staging'
 set :user, 'deploy'
 set :forward_agent, true
 set :rails_env, 'staging'
@@ -63,6 +63,9 @@ task :deploy => :environment do
     # Put things to run locally before ssh
   end
   deploy do
+
+    # This shouldn't have to be here but for some reason, I have to set the rbenv path here
+    queue! 'export PATH=$PATH:/usr/local/rbenv/shims'
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
     invoke :'git:clone'
