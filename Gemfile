@@ -45,6 +45,10 @@ gem 'carrierwave'
 gem 'fog'
 gem 'sidekiq'
 
+group :production, :staging do
+  gem 'puma'
+end
+
 group :development, :test do
   gem 'letter_opener'
   gem 'guard'
