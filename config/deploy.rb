@@ -60,7 +60,7 @@ task :deploy => :environment do
   #   # Put things to run locally before ssh
   # end
 
-  # queue! 'export PATH=$PATH:/usr/local/rbenv/shims'
+  queue! 'export PATH=$PATH:/usr/local/rbenv/shims'
 
   deploy do
 
