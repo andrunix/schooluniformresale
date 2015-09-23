@@ -21,4 +21,5 @@ Authentication implementation:
 http://hibbard.eu/authentication-with-devise-and-cancancan-in-rails-4-2/
 
 ### andrew pierce, andrunix
+http://andrunix.com
 
